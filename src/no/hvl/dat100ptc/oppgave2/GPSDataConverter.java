@@ -10,12 +10,12 @@ public class GPSDataConverter {
 
 	public static int toSeconds(String timestr) {
 	
-		int hr = Integer.parseInt(timestr.substring(TIME_STARTINDEX, 13));
-		int min = Integer.parseInt(timestr.substring(TIME_STARTINDEX + 3, 15));
-		int sec = Integer.parseInt(timestr.substring(TIME_STARTINDEX + 6, 17));
+		int hr = Integer.parseInt(timestr.substring(TIME_STARTINDEX, TIME_STARTINDEX + 2));
+		int min = Integer.parseInt(timestr.substring(TIME_STARTINDEX + 3, TIME_STARTINDEX + 5));
+		int sec = Integer.parseInt(timestr.substring(TIME_STARTINDEX + 6, TIME_STARTINDEX + 8));
  
-		int secs;
-		secs = hr * 3600 + min * 60 + sec;
+		
+		int secs = hr * 3600 + min * 60 + sec;
 
 		return secs;
 
