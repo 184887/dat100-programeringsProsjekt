@@ -38,7 +38,7 @@ public class GPSPoint {
 		
 	}
 
-	public void setLatitude(double latitude) {
+	public void setLatitude(double nyLatitude) {
 		
 		latitude = nyLatitude;
 		
@@ -50,7 +50,7 @@ public class GPSPoint {
 		
 	}
 
-	public void setLongitude(double longitude) {
+	public void setLongitude(double nyLongitude) {
 		
 		longitude = nyLongitude;
 		
@@ -62,7 +62,7 @@ public class GPSPoint {
 		
 	}
 
-	public void setElevation(double elevation) {
+	public void setElevation(double nyElevation) {
 		
 		elevation = nyElevation;
 		
@@ -71,10 +71,15 @@ public class GPSPoint {
 	public String toString() {
 		
 		String str;
-		
-		throw new UnsupportedOperationException(TODO.method());
 
-		// TODO
+		String strNyTime = Integer.toString(getTime());
+		String strNyLatitude = Double.toString(getLatitude());
+		String strNyLongitude = Double.toString(getLongitude());
+		String strNyElevation = Double.toString(getElevation());
+	
+		str = strNyTime + " (" + strNyLatitude + ","+ strNyLongitude + ") "+strNyElevation + "\n";
+
+		return str;
 		
 	}
 }
