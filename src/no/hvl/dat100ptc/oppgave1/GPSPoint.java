@@ -4,67 +4,67 @@ import no.hvl.dat100ptc.TODO;
 
 public class GPSPoint {
 
-	int time; 
-	double latitude;
-	double longitude;
-	double elevation; 
+	private int time; 
+	private double latitude;
+	private double longitude;
+	private double elevation; 
 	
 	public GPSPoint(int time, double latitude, double longitude, double elevation) {
 
-		time = 0 ;
-		latitude =  0.00;
-		longitude = 0.00;
-		elevation = 0.00; 
+		this.time = time;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.elevation = elevation;
 		
 	}
 
 	// TODO - get/set metoder
 	public int getTime() {
 		
-		throw new UnsupportedOperationException(TODO.method());
+		return time;
 		
 	}
 
 	public void setTime(int time) {
 				
-		throw new UnsupportedOperationException(TODO.method());
+		time = nyTime;
 		
 	}
 
 	public double getLatitude() {
 		
-		throw new UnsupportedOperationException(TODO.method());
+		return latitude;
 		
 		
 	}
 
 	public void setLatitude(double latitude) {
 		
-		throw new UnsupportedOperationException(TODO.method());
+		latitude = nyLatitude;
 		
 	}
 
 	public double getLongitude() {
 		
-		throw new UnsupportedOperationException(TODO.method());
+		return longitude;
 		
 	}
 
 	public void setLongitude(double longitude) {
 		
-		throw new UnsupportedOperationException(TODO.method());
+		longitude = nyLongitude;
 		
 	}
 
 	public double getElevation() {
 		
-		throw new UnsupportedOperationException(TODO.method());
+		return elevation;
 		
 	}
 
 	public void setElevation(double elevation) {
 		
-		throw new UnsupportedOperationException(TODO.method());
+		elevation = nyElevation;
 		
 	}
 	
