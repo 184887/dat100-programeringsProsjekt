@@ -21,13 +21,13 @@ public class GPSPoint {
 	// TODO - get/set metoder
 	public int getTime() {
 		
-		return time;
+
 		
 	}
 
 	public void setTime(int time) {
 				
-		time = nyTime;
+
 		
 	}
 
