@@ -1,6 +1,6 @@
 package no.hvl.dat100ptc.oppgave1;
 
-import no.hvl.dat100ptc.TODO;
+
 
 public class GPSPoint {
 
@@ -27,7 +27,7 @@ public class GPSPoint {
 
 	public void setTime(int time) {
 				
-		time = Nytime;
+		this.time = time;
 		
 	}
 
@@ -38,9 +38,9 @@ public class GPSPoint {
 		
 	}
 
-	public void setLatitude(double nyLatitude) {
+	public void setLatitude(double latitude) {
 		
-		latitude = nyLatitude;
+		this.latitude = latitude;
 		
 	}
 
@@ -50,9 +50,9 @@ public class GPSPoint {
 		
 	}
 
-	public void setLongitude(double nyLongitude) {
+	public void setLongitude(double longitude) {
 		
-		longitude = nyLongitude;
+		this.longitude = longitude;
 		
 	}
 
@@ -62,9 +62,9 @@ public class GPSPoint {
 		
 	}
 
-	public void setElevation(double nyElevation) {
+	public void setElevation(double elevation) {
 		
-		elevation = nyElevation;
+		this.elevation = elevation;
 		
 	}
 	
@@ -72,12 +72,12 @@ public class GPSPoint {
 		
 		String str;
 
-		String strNyTime = Integer.toString(getTime());
-		String strNyLatitude = Double.toString(getLatitude());
-		String strNyLongitude = Double.toString(getLongitude());
-		String strNyElevation = Double.toString(getElevation());
+		String strTime = Integer.toString(getTime());
+		String strLatitude = Double.toString(getLatitude());
+		String strLongitude = Double.toString(getLongitude());
+		String strElevation = Double.toString(getElevation());
 	
-		str = strNyTime + " (" + strNyLatitude + ","+ strNyLongitude + ") "+strNyElevation + "\n";
+		str = strTime + " (" + strLatitude + ","+ strLongitude + ") "+strElevation + "\n";
 
 		return str;
 		
