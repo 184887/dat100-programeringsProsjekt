@@ -1,5 +1,7 @@
 package no.hvl.dat100ptc.oppgave2;
 
+import javax.xml.catalog.Catalog;
+
 import no.hvl.dat100ptc.TODO;
 import no.hvl.dat100ptc.oppgave1.GPSPoint;
 
@@ -37,25 +39,24 @@ public class GPSData {
 	}
 
 	public boolean insert(String time, String latitude, String longitude, String elevation) {
+			
 		
-		int inttime = Integer.parseInt(time);  
-		double intLatitude= Double.parseDouble(latitude);
-		double intLongitude = Double.parseDouble(longitude);		
-		double inteLevation= Double.parseDouble(elevation);
-
-		GPSPoint gpspoint = new GPSPoint(inttime, intLatitude, intLongitude, inteLevation) ;
-
-		 
-		return(insertGPS(gpspoint));
+		GPSPoint gpsPoint = GPSDataConverter.convert(time, latitude, longitude, elevation);
+    
+		
+		return insertGPS(gpsPoint);
 		
 		
 		
 	}
 
 	public void print() {
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO 
+		System.out.println("===== GPS Data - Start =====");
+		for (int i = 0; i < gpspoints.length; i++) {
+			if (gpspoints[i] != null) { // Check for null to avoid NullPointerException
+				System.out.println(gpspoints[i].toString()); // Call toString() on the instance
+			}
+		}
+		System.out.println("===== GPS Data - End =====");
 	}
 }
