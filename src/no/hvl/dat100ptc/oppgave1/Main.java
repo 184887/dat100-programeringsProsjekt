@@ -11,7 +11,7 @@ public class Main {
 		GPSPoint x = new GPSPoint(1, 2, 3, 5);
 
 		x.getTime();
-		x.setTime(3);
+		x.setTime(2);
 		String p = x.toString();
 
 		System.out.println(p);
