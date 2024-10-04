@@ -34,7 +34,7 @@ public class GPSData {
 		
 		
 		
-		// TODO 
+		
 	
 	}
 
@@ -53,8 +53,8 @@ public class GPSData {
 	public void print() {
 		System.out.println("===== GPS Data - Start =====");
 		for (int i = 0; i < gpspoints.length; i++) {
-			if (gpspoints[i] != null) { // Check for null to avoid NullPointerException
-				System.out.println(gpspoints[i].toString()); // Call toString() on the instance
+			if (gpspoints[i] != null) { 
+				System.out.println(gpspoints[i].toString());
 			}
 		}
 		System.out.println("===== GPS Data - End =====");
