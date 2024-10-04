@@ -60,3 +60,4 @@ public class GPSData {
 		System.out.println("===== GPS Data - End =====");
 	}
 }
+// TODO oppagve c i oppagve 2 
