@@ -80,45 +80,60 @@ public class GPSUtils {
 
 		double lat1Rad = toRadians(latitude1);
         double lat2Rad = toRadians(latitude2);
-        double deltaLat = toRadians(latitude2 - latitude1);
-        double deltaLon = toRadians(longitude2 - longitude1);
+        double deltaphi = toRadians(latitude2 - latitude1);
+        double deltadelta = toRadians(longitude2 - longitude1);
 
-		d = R * compute_c(compute_a(lat1Rad, lat2Rad, deltaLat, deltaLon));
+		double a = compute_a(lat1Rad, lat2Rad, deltaphi, deltadelta);
+		double c = compute_c(a);
+		d = R * c;
 
 		return d; 
  	}
 	
 	private static double compute_a(double phi1, double phi2, double deltaphi, double deltadelta) {
 	
-		double a = Math.pow(sin(deltaphi/2), 2) + (cos(phi1) * cos(phi2) * Math.pow(sin(deltadelta/2), 2) );
-
-		return a;
+		return Math.pow(sin(deltaphi/2), 2) +
+		(cos(phi1) * cos(phi2) * Math.pow(sin(deltadelta/2), 2) );
+		
 	}
 
 	private static double compute_c(double a) {
 
 		
-		double c =  2 * (atan2(sqrt(compute_a(a, a, a, a)), sqrt(1-a)));
+		double c =  2 * (atan2(sqrt(a), sqrt(1-a)));
 		 return c; 
 	}
 
 	
 	public static double speed(GPSPoint gpspoint1, GPSPoint gpspoint2) {
 
-		int secs;
+
+		int sec1 = gpspoint1.getTime();
+		int sec2 = gpspoint2.getTime(); 
+		int secs = sec2 - sec1; 
 		double speed;
-		
-	
+		double d = distance(gpspoint1, gpspoint2);
+
+		speed = d / secs;
+
+		return speed; 
 	}
 
 	public static String formatTime(int secs) {
 
 		String timestr;
 		String TIMESEP = ":";
-
-		throw new UnsupportedOperationException(TODO.method());
 		
-		// TODO 
+
+
+		int h = secs / 3600;
+		int m = (secs % 3600)/60; 
+		int s = secs % 60;
+
+		timestr = String.format("  %02d%s%02d%s%02d",h, TIMESEP, m, TIMESEP, s);
+
+
+		return timestr; 
 		
 	}
 	
@@ -128,10 +143,9 @@ public class GPSUtils {
 
 		String str;
 
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO
-		
+		str =  String.format("%10.2f", d).substring(0, TEXTWIDTH);
+
+
+		return str.substring(0, Math.min(TEXTWIDTH, str.length()));
 	}
 }
