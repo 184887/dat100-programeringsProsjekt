@@ -6,6 +6,10 @@ import no.hvl.dat100ptc.oppgave2.GPSDataConverter;
 import no.hvl.dat100ptc.oppgave2.GPSDataFileReader;
 import no.hvl.dat100ptc.oppgave3.GPSUtils;
 
+import java.sql.Time;
+
+import javax.lang.model.util.ElementScanner14;
+
 import no.hvl.dat100ptc.TODO;
 
 public class GPSComputer {
@@ -97,10 +101,10 @@ public class GPSComputer {
 	public double averageSpeed() {
 
 		double average = 0;
+
+		average = totalDistance()/totalTime();
 		
-		// TODO
-		throw new UnsupportedOperationException(TODO.method());
-		
+		return average; 
 	}
 
 
@@ -114,19 +118,45 @@ public class GPSComputer {
 		double met = 0;		
 		double speedmph = speed * MS;
 
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
+		int t = secs / 3600;
+
+		if (speedmph < 10){
+			met = 4.0; 
+		}else if (speedmph >= 10 && speedmph < 12){
+			met = 6.0; 
+		}else if (speedmph >= 12 && speedmph < 14){
+			met = 8.0; 
+		}else if (speedmph >= 14 && speedmph < 16){
+			met = 10.0; 
+		}else if (speedmph >= 16 && speedmph < 20){
+			met = 12.0; 
+		}else if (speedmph > 20){
+			met = 16.0; 
+		}
+
+
+		kcal = met * weight * t;
+		return kcal; 
 		
 	}
-
 	public double totalKcal(double weight) {
-
 		double totalkcal = 0;
-
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
-		
+	
+		for (int i = 1; i < gpspoints.length; i++) {
+			int time = gpspoints[i].getTime() - gpspoints[i - 1].getTime(); 
+			double speed = speeds()[i - 1];; 
+			
+			if (time > 0) { 
+				totalkcal += kcal(weight, time, speed);
+			} else {
+				System.out.println("Warning: Time difference is non-positive at segment " + i);
+			}
+		}
+	
+		return totalkcal;
 	}
+	
+	
 	
 	private static double WEIGHT = 80.0;
 	
