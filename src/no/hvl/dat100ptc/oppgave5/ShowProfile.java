@@ -38,7 +38,6 @@ public class ShowProfile extends EasyGraphics {
 
 		makeWindow("Height profile", 2 * MARGIN + 3 * N, 2 * MARGIN + MAXBARHEIGHT);
 
-		// top margin + height of drawing area
 		showHeightProfile(MARGIN + MAXBARHEIGHT); 
 	}
 

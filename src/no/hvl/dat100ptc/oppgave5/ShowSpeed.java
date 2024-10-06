@@ -17,6 +17,7 @@ public class ShowSpeed extends EasyGraphics {
 
 	private GPSComputer gpscomputer;
 	
+	
 	public ShowSpeed() {
 
 		String filename = JOptionPane.showInputDialog("GPS data filnavn: ");
@@ -38,11 +39,25 @@ public class ShowSpeed extends EasyGraphics {
 	}
 	
 	public void showSpeedProfile(int ybase) {
-		
-		int x = MARGIN,y;
+
+		int x = MARGIN; 
+		int y;
+		double[] speeds = gpscomputer.speeds();
+		int barWidth = 2; 
 	
-		// TODO
-		throw new UnsupportedOperationException(TODO.method());
-		
-	}
-}
+		for (double speed : speeds) {
+	
+			double scaledHeight = Math.min((speed * BARHEIGHT) / 10, BARHEIGHT); // Scale speed to bar height
+	
+			
+			setColor(0, 0, 255); 
+	
+			
+			y = (int) (ybase - scaledHeight);
+	
+			drawLine(x, ybase, x, y);
+	
+			x += barWidth;
+		}
+	}}
+	
