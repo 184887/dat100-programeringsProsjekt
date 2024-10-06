@@ -118,7 +118,6 @@ public class GPSComputer {
 		double met = 0;		
 		double speedmph = speed * MS;
 
-		int t = secs / 3600;
 
 		if (speedmph < 10){
 			met = 4.0; 
@@ -135,25 +134,25 @@ public class GPSComputer {
 		}
 
 
-		kcal = met * weight * t;
+		kcal = (met * weight * secs)/3600;
 		return kcal; 
 		
 	}
 	public double totalKcal(double weight) {
 		double totalkcal = 0;
-	
+		
 		for (int i = 1; i < gpspoints.length; i++) {
+
 			int time = gpspoints[i].getTime() - gpspoints[i - 1].getTime(); 
-			double speed = speeds()[i - 1];; 
-			
+        	double speed = speeds()[i-1];
+
 			if (time > 0) { 
-				totalkcal += kcal(weight, time, speed);
-			} else {
-				System.out.println("Warning: Time difference is non-positive at segment " + i);
+				totalkcal += kcal(weight, time, speed); 
 			}
 		}
-	
-		return totalkcal;
+			
+
+			return totalkcal;
 	}
 	
 	
