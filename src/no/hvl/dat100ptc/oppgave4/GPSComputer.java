@@ -30,27 +30,39 @@ public class GPSComputer {
 	public double totalDistance() {
 
 		double distance = 0;
+		for( int i = 0; i < gpspoints.length - 1; i++){
 
-		throw new UnsupportedOperationException(TODO.method());
+			distance += GPSUtils.distance(gpspoints[i], gpspoints[i+1]); 
+		}
 
-		// TODO
+			return distance;
+			
+			
+		}
 
-	}
+	
 
 	public double totalElevation() {
 
 		double elevation = 0;
 
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO 
+		for( int i = 0; i < gpspoints.length - 1; i++){
+			
+			if (gpspoints[i].getElevation() < gpspoints[i+1].getElevation()){
+				elevation += gpspoints[i+1].getElevation() - gpspoints[i].getElevation();
+			}
+		}
+
+			return elevation;
 		
 	}
 
 	public int totalTime() {
 
-		// TODO
-		throw new UnsupportedOperationException(TODO.method());
+	int totalTid = gpspoints[gpspoints.length-1].getTime() - gpspoints[0].getTime(); 
+			
+	
+		return totalTid;
 		
 	}
 		
@@ -59,8 +71,11 @@ public class GPSComputer {
 
 		double[] speeds = new double[gpspoints.length-1];
 		
-		// TODO
-		throw new UnsupportedOperationException(TODO.method());
+		for( int i = 0; i < gpspoints.length - 1; i++){
+			speeds[i] = GPSUtils.speed(gpspoints[i], gpspoints[i+1]);
+		}
+
+		return speeds; 
 		
 	}
 	
@@ -68,8 +83,14 @@ public class GPSComputer {
 		
 		double maxspeed = 0;
 		
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
+		for( int i = 0; i < gpspoints.length - 1; i++){
+			double cspeed = GPSUtils.speed(gpspoints[i], gpspoints[i+1]);
+			if(maxspeed < cspeed ){
+				maxspeed = cspeed; 
+			}
+		}
+
+		return maxspeed; 
 	
 	}
 

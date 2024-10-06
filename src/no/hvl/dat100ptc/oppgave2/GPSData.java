@@ -1,8 +1,8 @@
 package no.hvl.dat100ptc.oppgave2;
 
-import javax.xml.catalog.Catalog;
 
-import no.hvl.dat100ptc.TODO;
+
+
 import no.hvl.dat100ptc.oppgave1.GPSPoint;
 
 public class GPSData {
@@ -32,10 +32,6 @@ public class GPSData {
 
 		return inserted; 
 		
-		
-		
-		
-	
 	}
 
 	public boolean insert(String time, String latitude, String longitude, String elevation) {
@@ -45,8 +41,6 @@ public class GPSData {
     
 		
 		return insertGPS(gpsPoint);
-		
-		
 		
 	}
 
@@ -60,4 +54,3 @@ public class GPSData {
 		System.out.println("===== GPS Data - End =====");
 	}
 }
-// TODO oppagve c i oppagve 2 
