@@ -161,15 +161,18 @@ public class GPSComputer {
 	
 	public void displayStatistics() {
 
-		System.out.println("=======================");
-		System.out.println("Total Time     :" + GPSUtils.formatTime(totalTime()));
-		System.out.println("Total distance :" + totalDistance());
-		System.out.println("Total elevation:" + totalElevation());
-		System.out.println("Max speed      :" + maxSpeed());
-		System.out.println("Average speed  :" + averageSpeed());
-		System.out.println("Energy         :" + totalKcal(WEIGHT));
-		System.out.println("=======================");
+		String stats = "=======================" + "\n" +
+		"Total Time     :" + GPSUtils.formatTime(totalTime()) + "\n" +
+		"Total distance :" + totalDistance() + "\n" +
+		("Total distance :" + totalDistance() + "\n" + 
+		"Total elevation:" + totalElevation() + "\n" + 
+		"Max speed      :" + maxSpeed()) + "\n" + 
+		"Average speed  :" + averageSpeed() + "\n" + 
+		"Energy         :" + totalKcal(WEIGHT) + "\n" + 
+						"=======================";
 		
+		System.out.println(stats);
+
 	}
 
 }
