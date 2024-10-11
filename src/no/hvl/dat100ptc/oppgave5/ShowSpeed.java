@@ -46,18 +46,20 @@ public class ShowSpeed extends EasyGraphics {
 		int barWidth = 2; 
 	
 		for (double speed : speeds) {
-	
-			double scaledHeight = Math.min((speed * BARHEIGHT) / 10, BARHEIGHT); // Scale speed to bar height
-	
-			
+			double scaledHeight = Math.min((speed * BARHEIGHT) / 20, BARHEIGHT); 
 			setColor(0, 0, 255); 
-	
-			
 			y = (int) (ybase - scaledHeight);
-	
+
 			drawLine(x, ybase, x, y);
-	
 			x += barWidth;
 		}
+
+		
+		double avgSpeedHeight = Math.min((gpscomputer.averageSpeed() * BARHEIGHT) / 20, BARHEIGHT);
+		setColor(0, 255, 0); 
+		drawLine(MARGIN, ybase - (int)avgSpeedHeight, x, ybase - (int)avgSpeedHeight); 
+
+
+
 	}}
 	
