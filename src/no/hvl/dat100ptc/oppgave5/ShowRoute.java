@@ -63,9 +63,16 @@ public class ShowRoute extends EasyGraphics {
 	}
 
 	public void showRouteMap(int ybase) {
+		setColor(0, 120, 0);
 
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
+		for (int i = 0; i < gpspoints.length;i++){
+			
+			int x = (int)((gpspoints[i].getLongitude() - minlon) * xstep) + MARGIN;
+			int y = (int)((maxlat - gpspoints[i].getLatitude()) * ystep) + MARGIN;
+	
+			drawCircle(x, y, 3);  
+		}
+		
 		
 	}
 
