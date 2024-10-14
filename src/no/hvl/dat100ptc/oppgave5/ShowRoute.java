@@ -50,9 +50,9 @@ public class ShowRoute extends EasyGraphics {
 		
 		showRouteMap(MARGIN + MAPYSIZE);
 
-		replayRoute(MARGIN + MAPYSIZE);
+		//replayRoute(MARGIN + MAPYSIZE);
 		
-		showStatistics();
+		//showStatistics();
 	}
 
 	public double scale(int maxsize, double minval, double maxval) {
