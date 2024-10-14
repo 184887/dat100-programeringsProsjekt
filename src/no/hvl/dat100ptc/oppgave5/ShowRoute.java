@@ -52,7 +52,7 @@ public class ShowRoute extends EasyGraphics {
 
 		//replayRoute(MARGIN + MAPYSIZE);
 		
-		//showStatistics();
+		showStatistics();
 	}
 
 	public double scale(int maxsize, double minval, double maxval) {
@@ -70,7 +70,8 @@ public class ShowRoute extends EasyGraphics {
 			int x = (int)((gpspoints[i].getLongitude() - minlon) * xstep) + MARGIN;
 			int y = (int)((maxlat - gpspoints[i].getLatitude()) * ystep) + MARGIN;
 	
-			drawCircle(x, y, 3);  
+			drawCircle(x, y, 3); 
+			drawLine(ybase, i, x, y) 
 		}
 		
 		
@@ -83,8 +84,7 @@ public class ShowRoute extends EasyGraphics {
 		setColor(0,0,0);
 		setFont("Courier",12);
 		
-		// TODO
-		throw new UnsupportedOperationException(TODO.method());
+		drawString(GPSComputer.displayStatistics(), TEXTDISTANCE, TEXTDISTANCE);
 		
 	}
 

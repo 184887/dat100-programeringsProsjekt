@@ -159,7 +159,7 @@ public class GPSComputer {
 	
 	private static double WEIGHT = 80.0;
 	
-	public void displayStatistics() {
+	public static String displayStatistics() {
 
 		String stats = "=======================" + "\n" +
 		"Total Time     :" + GPSUtils.formatTime(totalTime()) + "\n" +
@@ -173,6 +173,7 @@ public class GPSComputer {
 		
 		System.out.println(stats);
 
+		return stats;
 	}
 
 }
