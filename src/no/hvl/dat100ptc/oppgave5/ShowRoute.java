@@ -29,6 +29,9 @@ public class ShowRoute extends EasyGraphics {
 
 		gpspoints = gpscomputer.getGPSPoints();
 
+		
+		
+
 	}
 
 	public static void main(String[] args) {
@@ -50,7 +53,7 @@ public class ShowRoute extends EasyGraphics {
 		
 		showRouteMap(MARGIN + MAPYSIZE);
 
-		//replayRoute(MARGIN + MAPYSIZE);
+		replayRoute(MARGIN + MAPYSIZE);
 		
 		showStatistics();
 	}
@@ -65,34 +68,61 @@ public class ShowRoute extends EasyGraphics {
 	public void showRouteMap(int ybase) {
 		setColor(0, 120, 0);
 
-		for (int i = 0; i < gpspoints.length;i++){
+		for (int i = 0; i < gpspoints.length -1 ;i++){
 			
 			int x = (int)((gpspoints[i].getLongitude() - minlon) * xstep) + MARGIN;
 			int y = (int)((maxlat - gpspoints[i].getLatitude()) * ystep) + MARGIN;
-	
-			drawCircle(x, y, 3); 
-			drawLine(ybase, i, x, y) 
+
+			int x1 = (int)((gpspoints[i+1].getLongitude() - minlon) * xstep) + MARGIN;
+			int y1 = (int)((maxlat - gpspoints[i+1].getLatitude()) * ystep) + MARGIN;
+
+			
+			drawLine(x, y, x1, y1);
+
+			
 		}
 		
 		
 	}
 
 	public void showStatistics() {
+		String stats = gpscomputer.displayStatistics();
 
+		String[] lines = stats.split("\n");
 		int TEXTDISTANCE = 20;
+		
 
 		setColor(0,0,0);
 		setFont("Courier",12);
+		int x = 50;
+		int y = 40; 
 		
-		drawString(GPSComputer.displayStatistics(), TEXTDISTANCE, TEXTDISTANCE);
+		for (String line : lines){
+			drawString(line, x, y);
+			y += TEXTDISTANCE;
+	}
 		
 	}
 
 	public void replayRoute(int ybase) {
+	setColor(0, 0, 120);
+	for (int i = 0; i < gpspoints.length;i++){
+			
+		int x = (int)((gpspoints[i].getLongitude() - minlon) * xstep) + MARGIN;
+		int y = (int)((maxlat - gpspoints[i].getLatitude()) * ystep) + MARGIN;
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+		
+			e.printStackTrace();
+		}
+		drawCircle(x, y, 6); 
+	
+       
+	
 
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
+	
 		
 	}
 
-}
+}}

@@ -159,9 +159,9 @@ public class GPSComputer {
 	
 	private static double WEIGHT = 80.0;
 	
-	public static String displayStatistics() {
+	public String displayStatistics() {
 
-		String stats = "=======================" + "\n" +
+		String stats = "===============================" + "\n" +
 		"Total Time     :" + GPSUtils.formatTime(totalTime()) + "\n" +
 		"Total distance :" + totalDistance() + "\n" +
 		("Total distance :" + totalDistance() + "\n" + 
@@ -169,11 +169,12 @@ public class GPSComputer {
 		"Max speed      :" + maxSpeed()) + "\n" + 
 		"Average speed  :" + averageSpeed() + "\n" + 
 		"Energy         :" + totalKcal(WEIGHT) + "\n" + 
-						"=======================";
+						"==============================";
 		
 		System.out.println(stats);
 
 		return stats;
+
 	}
 
 }
