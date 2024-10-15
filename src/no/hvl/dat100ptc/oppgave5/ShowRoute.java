@@ -106,23 +106,18 @@ public class ShowRoute extends EasyGraphics {
 
 	public void replayRoute(int ybase) {
 	setColor(0, 0, 120);
+
 	for (int i = 0; i < gpspoints.length;i++){
-			
 		int x = (int)((gpspoints[i].getLongitude() - minlon) * xstep) + MARGIN;
 		int y = (int)((maxlat - gpspoints[i].getLatitude()) * ystep) + MARGIN;
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
 		
-			e.printStackTrace();
-		}
-		drawCircle(x, y, 6); 
+		
+		fillCircle(x, y, 5); 
 	
        
 	
 
 	
-		
 	}
 
 }}
