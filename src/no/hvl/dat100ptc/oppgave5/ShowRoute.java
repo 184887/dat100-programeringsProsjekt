@@ -29,9 +29,6 @@ public class ShowRoute extends EasyGraphics {
 
 		gpspoints = gpscomputer.getGPSPoints();
 
-		
-		
-
 	}
 
 	public static void main(String[] args) {
@@ -112,12 +109,18 @@ public class ShowRoute extends EasyGraphics {
 		int y = (int)((maxlat - gpspoints[i].getLatitude()) * ystep) + MARGIN;
 		
 		
+		
 		fillCircle(x, y, 5); 
 	
        
-	
+		try {
+            Thread.sleep(1000); // Pause for 1 second (1000 milliseconds)
+        } catch (InterruptedException e) {
+            System.out.println("Thread was interrupted");
+        }
 
 	
 	}
 
-}}
+}
+}
