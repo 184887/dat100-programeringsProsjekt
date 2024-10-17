@@ -63,7 +63,7 @@ public class ShowRoute extends EasyGraphics {
 	}
 
 	public void showRouteMap(int ybase) {
-		setColor(0, 120, 0);
+		setColor(0, 0, 120);
 
 		for (int i = 0; i < gpspoints.length -1 ;i++){
 			
@@ -91,7 +91,7 @@ public class ShowRoute extends EasyGraphics {
 
 		setColor(0,0,0);
 		setFont("Courier",12);
-		int x = 50;
+		int x = 100;
 		int y = 40; 
 		
 		for (String line : lines){
@@ -102,15 +102,15 @@ public class ShowRoute extends EasyGraphics {
 	}
 
 	public void replayRoute(int ybase) {
-	setColor(0, 0, 120);
+	setColor(0, 120, 0);
 
 	for (int i = 0; i < gpspoints.length;i++){
 		int x = (int)((gpspoints[i].getLongitude() - minlon) * xstep) + MARGIN;
 		int y = (int)((maxlat - gpspoints[i].getLatitude()) * ystep) + MARGIN;
 	
 		
-		fillCircle(x, y, 5); 
-	
+		drawCircle(x, y, 5); 
+		pause(20); 
 
 	
 	}
