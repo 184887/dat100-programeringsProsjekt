@@ -12,8 +12,8 @@ import no.hvl.dat100ptc.TODO;
 public class ShowRoute extends EasyGraphics {
 
 	private static int MARGIN = 50;
-	private static int MAPXSIZE = 800;
-	private static int MAPYSIZE = 800;
+	private static int MAPXSIZE = 600;
+	private static int MAPYSIZE = 600;
 
 	private GPSPoint[] gpspoints;
 	private GPSComputer gpscomputer;
@@ -66,6 +66,8 @@ public class ShowRoute extends EasyGraphics {
 	}
 
 	public void showRouteMap(int ybase) {
+
+		
 		for (int i = 0; i < gpspoints.length -1 ;i++){
 			
 			int x = (int)((gpspoints[i].getLongitude() - minlon) * xstep) + MARGIN;

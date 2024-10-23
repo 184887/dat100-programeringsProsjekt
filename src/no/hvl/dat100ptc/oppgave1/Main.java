@@ -14,12 +14,6 @@ public class Main {
 		x.setTime(2);
 		String p = x.toString();
 
-		
-
-		
-		
-		
-
 		System.out.println(p);
 
 	}

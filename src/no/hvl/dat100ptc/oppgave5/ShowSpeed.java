@@ -44,6 +44,7 @@ public class ShowSpeed extends EasyGraphics {
 		int y;
 		double[] speeds = gpscomputer.speeds();
 		int barWidth = 2; 
+		
 	
 		for (double speed : speeds) {
 			double scaledHeight = Math.min((speed * BARHEIGHT) / 20, BARHEIGHT); 

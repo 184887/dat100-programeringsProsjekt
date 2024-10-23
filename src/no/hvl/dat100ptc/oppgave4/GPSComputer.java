@@ -86,15 +86,11 @@ public class GPSComputer {
 	public double maxSpeed() {
 		
 		double maxspeed = 0;
-		
-		for( int i = 0; i < gpspoints.length - 1; i++){
-			double cspeed = GPSUtils.speed(gpspoints[i], gpspoints[i+1]);
-			if(maxspeed < cspeed ){
-				maxspeed = cspeed; 
-			}
-		}
 
-		return maxspeed; 
+		maxspeed = GPSUtils.findMax(speeds());
+		
+		return maxspeed;
+		
 	
 	}
 
@@ -137,7 +133,7 @@ public class GPSComputer {
 		kcal = (met * weight * secs)/3600;
 		return kcal; 
 		
-	}
+	} 
 	public double totalKcal(double weight) {
 		double totalkcal = 0;
 		
@@ -161,15 +157,14 @@ public class GPSComputer {
 	
 	public String displayStatistics() {
 
-		String stats = "===============================" + "\n" +
-		"Total Time     :" + GPSUtils.formatTime(totalTime()) + "\n" +
-		"Total distance :" + totalDistance() + "\n" +
-		("Total distance :" + totalDistance() + "\n" + 
-		"Total elevation:" + totalElevation() + "\n" + 
-		"Max speed      :" + maxSpeed()) + "\n" + 
-		"Average speed  :" + averageSpeed() + "\n" + 
-		"Energy         :" + totalKcal(WEIGHT) + "\n" + 
-						"==============================";
+		String stats = "===============================\n" +
+               "Total Time     : " + GPSUtils.formatTime(totalTime()) + "\n" +
+               String.format("Total distance : %.2f km\n", totalDistance()) +
+               String.format("Total elevation: %.2f m\n", totalElevation()) +
+               String.format("Max speed      : %.2f km/h\n", maxSpeed()) +
+               String.format("Average speed  : %.2f km/h\n", averageSpeed()) +
+               String.format("Energy         : %.2f kcal\n", totalKcal(WEIGHT)) +
+               "==============================";
 		
 		System.out.println(stats);
 
